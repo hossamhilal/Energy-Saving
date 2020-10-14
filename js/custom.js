@@ -2,13 +2,24 @@
 (function($) {
     "use strict";
 
-    // $(window).on('load', function(){
-    //     $('body').addClass('stopScroll');
-    //     $('.loader').fadeOut(500, function () {
-    //         $(this).remove();
-    //         $('body').removeClass('stopScroll');
-    //     }); 
-    // });
+    var rtlVal = false ;
+
+    $(window).on('load', function(){
+        // $('body').addClass('stopScroll');
+        // $('.loader').fadeOut(500, function () {
+        //     $(this).remove();
+        //     $('body').removeClass('stopScroll');
+        // });  
+    });
+
+    if($('body').hasClass('ar')) {
+        rtlVal = true;
+        console.log(rtlVal)
+    }
+    else{
+        rtlVal = false;
+        console.log(rtlVal)
+    }
 
     // OPEN SIDE  MENU 
     $('.menuBtn').on('click', function(){
@@ -48,6 +59,7 @@
     
     // Header OWL 
     $('.owlHeader').owlCarousel({
+        rtl: rtlVal ,
         margin: 0,
         autoplay: true,
         loop: true,
@@ -72,10 +84,12 @@
                 dotsEach: 1
             }
         }
+
     });
 
     // Testimonials OWL 
     $('.owlServices').owlCarousel({
+        rtl: rtlVal ,
         margin: 20,
         autoplay: true,
         loop: false,
@@ -101,6 +115,7 @@
 
     // Partners OWL 
     $('.owlBlogs').owlCarousel({
+        rtl: rtlVal ,
         margin: 20,
         autoplay: true,
         loop: true,
@@ -129,6 +144,7 @@
 
     // Clients OWL 
     $('.owlClients').owlCarousel({
+        rtl: rtlVal ,
         margin: 20,
         autoplay: true,
         loop: true,
@@ -178,7 +194,6 @@
     // // Sticky Social Share
     let shareOffset = $('.share').offset().top - 100;
     $(window).scroll(function(){
-        console.log($('.share').offset().top)
         if ($(window).scrollTop() > shareOffset){
             $('.share').addClass('sticky');
         } else {
@@ -187,20 +202,67 @@
     });
 
     // Sticky Side List
+    let sideOffset = $('.sideList').offset().top - 100;
     $(window).scroll(function(){
-        if ($(window).scrollTop() > $('.sideList').offset().top - 100 ){
+        if ($(window).scrollTop() > sideOffset ){
             $('.sideList').addClass('sticky');
         } else {
             $('.sideList').removeClass('sticky');
         }
     });
 
-
     // SHOW SIDE MENU 
     $('.showSide').on('click', function(e) {
         $('.sideList').toggleClass('open');
     });
 
+    // close Modal
+    $('.modal').on('click', function(e) {
+        $(this).modal('hide')
+    });
+
+    $('.modal-dialog').on('click', function(e) {
+        e.stopPropagation();
+    });
+
+    // INPUT FOCUS ANIMATION 
+    $('.form-control').focus(function(){
+        $(this).parent('.field').addClass('animated');
+    });
+
+    $('.form-control').each(function() { 
+        if ($(this).val() != "") {
+            $(this).parent('.field').addClass('animated');   
+        }
+    });
+
+    $('.form-control').focusout(function(){
+        if($(this).val() === "")
+        $(this).parent('.field').removeClass('animated');
+    });
+
+
+    // Upload File 
+    $('.file').on('change', function(e) {
+        var filename = e.target.files[0].name;
+        console.log('filename' , filename)
+        let fileName = e.target.value.split( '\\' ).pop();
+        console.log('fileName' , fileName);
+        let files = $(this).parent('.uploadFile').next('.fileNames');
+        files.append(
+            '<div class="file">' +
+                '<h3 class="fileName">' + filename  + '</h3>' +
+                '<span class="deleteFile"> <i class="icofont-ui-delete"></i> </span>' +
+            '</div>'
+        );               
+    });
+
+    // Delete File
+    $(document).on('click','.deleteFile' , function(){
+        $(this).parent('.file').remove();
+    });
+    
+     
     
 
     // // Upload File 

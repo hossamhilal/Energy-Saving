@@ -273,6 +273,10 @@ button:focus {
     display: none;
 }
 
+.navMenu {
+    display: flex;
+}
+
 .navMenu a {
     font-size: 15px;
     color: var(--textDark);
@@ -475,7 +479,8 @@ button:focus {
     color: var(--white);
 }
 
-.breadcrumb a, .breadcrumb-item+.breadcrumb-item::before {
+.breadcrumb a,
+.breadcrumb-item+.breadcrumb-item::before {
     color: var(--white);
 }
 
@@ -654,12 +659,12 @@ button:focus {
     .pageHeader {
         padding: 20px;
     }
-    
+
     .pageHeader h1 {
         font-size: 22px;
         margin-bottom: 10px;
     }
-    
+
     .breadcrumb-item {
         font-size: 13px;
     }
@@ -796,19 +801,19 @@ button:focus {
     .headerSlider .item {
         height: 320px;
     }
-    
+
     .headerSlider .itemBox {
         max-width: 460px;
     }
-    
+
     .headerSlider h2 {
         font: bold 35px/40px Roboto;
     }
-    
+
     .headerSlider p {
         font: normal 14px/25px Roboto;
     }
-    
+
     .headerSlider .owl-nav>* {
         width: 40px;
         height: 40px;
@@ -1118,6 +1123,12 @@ button:focus {
 
 .blogImg>img {
     height: 100%;
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: .5s;
+    -webkit-animation-duration: .5s;
+    animation-fill-mode: linear;
+    -webkit-animation-fill-mode: linear;
 }
 
 .blogImg a {
@@ -1248,6 +1259,26 @@ button:focus {
 
 .blogsPage .blog {
     margin-bottom: 30px;
+}
+
+@keyframes slide {
+    0% {
+        height: 0%;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
+
+@-webkit-keyframes slide {
+    0% {
+        height: 0%;
+    }
+
+    100% {
+        height: 100%;
+    }
 }
 
 @media screen and (max-width:768px) {
@@ -1441,7 +1472,7 @@ button:focus {
 }
 
 .field {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     position: relative;
 }
 
@@ -1473,8 +1504,36 @@ button:focus {
 }
 
 .field .form-control:focus+label {
-    top: -22px;
+    top: -14px;
     left: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.iconField {
+    position: relative;
+}
+
+.iconField span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.iconField span img {
+    max-width: 20px;
+}
+
+.field.animated label {
+    top: -14px;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .contactForm .blueBtn {
@@ -1553,12 +1612,12 @@ button:focus {
         margin: 20px 0 0 0;
         padding: 0 15px;
     }
-    
+
     .contactItem {
         justify-content: flex-start;
         padding: 10px;
     }
-    
+
     .contactList .col-12:nth-child(2) {
         border-width: 1px 0;
     }
@@ -1568,36 +1627,36 @@ button:focus {
     .contact h2 {
         font-size: 22px;
     }
-    
+
     .contact p {
         font-size: 13px;
         line-height: 22px;
     }
-    
+
     .contactBox {
         padding-inline-end: 0;
     }
-    
+
     .contactForm {
         padding: 25px 0;
     }
-    
+
     .field label {
         font-size: 13px;
     }
-    
+
     .contactItem img {
         max-width: 30px;
     }
-    
+
     .contactItem h5 {
         font-size: 14px;
     }
-    
+
     .contactItem h6 {
         font-size: 13px;
-    }  
-    
+    }
+
     .contactPage .contactList {
         margin: 0 0 25px 0;
     }
@@ -1608,7 +1667,7 @@ button:focus {
         margin: 0;
         padding: 15px 10px;
     }
-    
+
     .contactList .col-12:nth-child(2) {
         border-width: 0 1px;
     }
@@ -1712,20 +1771,20 @@ button:focus {
     .newletter img {
         max-width: 45px;
     }
-    
+
     .newletter h4 {
         font-size: 16px;
     }
-    
+
     .newsletterForm {
         height: 40px;
     }
-    
+
     .newsletterForm button {
         min-width: 80px;
         width: 90px;
     }
-    
+
     .newsletterForm input {
         width: calc(100% - 90px);
     }
@@ -1856,12 +1915,6 @@ button:focus {
     .footer {
         padding: 10px 0 80px;
     }
-
-    .scrollUp {
-        position: fixed;
-        bottom: 75px;
-        right: 15px;
-    }
 }
 
 @media screen and (max-width:768px) {
@@ -1869,27 +1922,29 @@ button:focus {
         font-size: 13px;
         margin-bottom: 15px;
     }
-    
-    .links a, .footerContact li, .footerContact a {
+
+    .links a,
+    .footerContact li,
+    .footerContact a {
         font-size: 13px;
         line-height: 30px;
     }
-    
+
     .links {
         margin-bottom: 20px;
     }
-    
+
     .social a {
         width: 25px;
         height: 25px;
         font-size: 14px;
     }
-    
+
     .privacyBox p {
         font-size: 12px;
         margin: 0;
     }
-    
+
     .footer h3 {
         font-size: 16px;
     }
@@ -2038,6 +2093,14 @@ button:focus {
 
     100% {
         opacity: 0;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .scrollUp {
+        position: fixed;
+        bottom: 75px;
+        right: 15px;
     }
 }
 
@@ -2243,7 +2306,7 @@ button:focus {
     }
 }
 
-@media screen and (max-width:768px) {  
+@media screen and (max-width:768px) {
     .sideList {
         transform: translateX(-100%);
         width: 240px;
@@ -2319,7 +2382,7 @@ button:focus {
 
 .pagination a:first-of-type:hover,
 .pagination a:last-of-type:hover {
-    background:  var(--mainColor);
+    background: var(--mainColor);
     color: var(--white);
 }
 
@@ -2340,7 +2403,7 @@ button:focus {
     padding: 12px;
 }
 
-.blogDetails > img {
+.blogDetails>img {
     min-height: 200px;
 }
 
@@ -2355,7 +2418,8 @@ button:focus {
     box-shadow: none;
 }
 
-.blogInfo ul, .blogInfo .social {
+.blogInfo ul,
+.blogInfo .social {
     padding: 0;
 }
 
@@ -2385,20 +2449,20 @@ button:focus {
         flex-direction: column;
         align-items: end;
     }
-    
+
     .blogInfo ul {
         margin-bottom: 15px;
     }
-    
+
     .blogPage h3 {
         font-size: 16px;
         margin-bottom: 5px;
     }
-    
+
     .blogPage .blogBody {
         padding: 10px 0;
     }
-    
+
     .blogPage p {
         font-size: 13px;
         line-height: 23px;
@@ -2406,48 +2470,335 @@ button:focus {
 }
 
 /*==========================||---------------------------||========================*/
-/*==========================||       Wellness Ideas      ||========================*/
+/*==========================||           Page Form       ||========================*/
 /*==========================||---------------------------||========================*/
 
+.pageForm {
+    border: 1px solid #D8D8D8;
+    border-radius: 13px;
+    padding: 5%;
+    padding-inline-end: 10%;
+}
 
-@media screen and (max-width:575px) {}
+.pageForm h2 {
+    font-size: 36px;
+    font-weight: 900;
+    max-width: 500px;
+}
 
-@media screen and (max-width:768px) {}
+.pageForm p {
+    font-size: 14px;
+    max-width: 500px;
+    line-height: 25px;
+}
+
+.uploadBox {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.uploadFile {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.uploadFile span {
+    font-size: 14px;
+    color: var(--textLight);
+    display: block;
+    margin-top: 5px;
+}
+
+.uploadFile label {
+    margin: 0;
+    cursor: pointer;
+}
+
+.uploadFile:hover span {
+    color: var(--secondaryColor);
+}
+
+.fileNames {
+    width: 100%;
+    max-width: 400px;
+}
+
+.file {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 5px 0;
+}
+
+.file h3 {
+    font-size: 15px;
+    color: var(--text);
+}
+
+.file:last-of-type {
+    border: 0;
+    margin-bottom: 20px;
+}
+
+.file span {
+    color: var(--text);
+    cursor: pointer;
+}
+
+.file span:hover {
+    color: var(--red);
+}
+
+@media screen and (max-width:575px) {
+
+    .mapModal .map,
+    .mapModal .map iframe {
+        height: 300px;
+    }
+
+    .pageForm {
+        padding: 10px;
+    }
+
+    .pageForm h2 {
+        font-size: 20px;
+    }
+
+    .pageForm p {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    .pageForm .contactForm {
+        padding-bottom: 0;
+    }
+}
+
+@media (min-width:768px) {
+    .modal-dialog {
+        max-width: 700px;
+    }
+
+    .mapModal .map,
+    .mapModal .map iframe {
+        height: 400px;
+    }
+}
+
+@media (min-width:1024px) {
+    .modal-dialog {
+        max-width: 950px;
+    }
+
+    .mapModal .map,
+    .mapModal .map iframe {
+        height: 500px;
+    }
+}
 
 /*==========================||---------------------------||========================*/
-/*==========================||          Careers          ||========================*/
+/*==========================||          Services         ||========================*/
 /*==========================||---------------------------||========================*/
 
+.serviceBox {
+    border: 1px solid #E6E6E6;
+    border-radius: 10px;
+    padding: 0 20px;
+    margin-bottom: 70px;
+}
 
-@media screen and (max-width:575px) {}
+.serviceBox img {
+    max-width: 95px;
+    margin-top: -45px;
+    margin-bottom: 15px;
+}
 
-@media screen and (max-width:768px) {}
+.serviceBox p {
+    font-size: 14px;
+    line-height: 27px;
+    margin-bottom: 20px;
+}
 
-/*==========================||---------------------------||========================*/
-/*==========================||          Volunteer        ||========================*/
-/*==========================||---------------------------||========================*/
+.serviceBox:hover {
+    border-color: var(--secondaryColor);
+}
 
-@media screen and (max-width:575px) {}
+.serviceBox:hover img {
+    -webkit-animation: mover .5s infinite alternate;
+    animation: mover .5s infinite alternate;
+}
 
-@media screen and (max-width:768px) {}
+@-webkit-keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
 
-/*==========================||---------------------------||========================*/
-/*==========================||        Sponsorships       ||========================*/
-/*==========================||---------------------------||========================*/
+    100% {
+        transform: translateY(-10px);
+    }
+}
 
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
 
-@media screen and (max-width:575px) {}
+    100% {
+        transform: translateY(-10px);
+    }
+}
 
-@media screen and (max-width:768px) {}
+@media screen and (max-width:768px) {
+    .servicesPage {
+        padding: 70px 0;
+    }
+
+    .serviceBox {
+        padding: 0 10px;
+        margin-bottom: 50px;
+    }
+
+    .serviceBox img {
+        max-width: 70px;
+        margin-top: -35px;
+        margin-bottom: 6px;
+    }
+
+    .serviceBox p {
+        margin-bottom: 10px;
+        line-height: 22px;
+    }
+}
 
 /*==========================||---------------------------||========================*/
 /*==========================||            AR             ||========================*/
 /*==========================||---------------------------||========================*/
 
+.ar {
+    text-align: right;
+    direction: rtl;
+}
 
-@media screen and (max-width:575px) {}
+.ar .navMenu a::before {
+    left: auto;
+    right: -12px;
+}
 
-@media screen and (max-width:768px) {}
+.ar .headerSlider .owl-dots {
+    right: auto;
+    left: 6%;
+}
+
+.ar .sideVector {
+    right: auto;
+    left: 0;
+}
+
+.ar .aboutVectors::after {
+    right: auto;
+    left: 0;
+}
+
+.ar .share {
+    right: auto;
+    left: 40px;
+}
+
+.ar .sideList {
+    border-radius: 20px 0 0 20px;
+}
+
+.ar .services .owl-nav {
+    flex-direction: row-reverse;
+}
+
+.ar .arrowBtn i::before {
+    content: '\ea93';
+}
+
+.ar .field label {
+    right: 15px;
+    left: auto;
+}
+
+.ar .contactMap::after {
+    left: 0;
+    right: auto;
+}
+
+.ar .arrowBtn:hover i {
+    transform: translateX(-32px);
+}
+
+.ar .pagination .icofont-long-arrow-left::before {
+    content: "\ea94";
+}
+
+.ar .pagination .icofont-long-arrow-right::before {
+    content: "\ea93";
+}
+
+.ar .iconField span {
+    right: auto;
+    left: 0;
+}
+
+@media screen and (max-width:575px) {
+    .ar .menuBtn {
+        right: auto;
+        left: 15px;
+    }
+
+    .ar .scrollUp {
+        position: fixed;
+        right: auto;
+        left: 15px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .ar .navMenu {
+        transform: translateX(-100%);
+        right: auto;
+        left: 0;
+    }
+
+    .ar .navMenu.show {
+        transform: translateX(0);
+    }
+
+    .ar .sideList {
+        transform: translateX(100%);
+    }
+
+    .ar .showSide {
+        left: -30px;
+        right: auto;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .ar .sideList.open {
+        transform: translateX(0);
+    }
+
+    .ar .showSide i::before {
+        content: '\eac9';
+    }
+
+    .ar .share {
+        right: auto;
+        left: 15px;
+    }
+}
 
 /*==========================||---------------------------||========================*/
 /*==========================||            Loader        ||========================*/

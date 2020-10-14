@@ -47,7 +47,7 @@
                     <a href="index.html"> Home </a>
                     <a href="about.html"> About Us </a>
                     <a href="services.html"> Services & Solutions </a>
-                    <a href="contact.html" class="active"> Contact Us </a>
+                    <a href="contact.html"> Contact Us </a>
                     <a href="blogs.html"> Blog </a>
                     <a href="careers.html"> Careers </a>
                 </div>
@@ -64,10 +64,10 @@
             </div>
         </div>
         <div class="pageHeader">
-            <h1> Contact Us </h1>
+            <h1> Request a Free Site Survey </h1>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"> <a href="index.html"> Home </a> </li>
-                <li class="breadcrumb-item active" aria-current="page"> Contact Us </li>
+                <li class="breadcrumb-item active" aria-current="page"> Request a Free Site Survey </li>
             </ol> 
         </div>
     </div>
@@ -89,71 +89,53 @@
         <a href="contact.html"> <img src="images/side-icon-4.png" alt="icon"> <span> Contact Us </span> </a>
     </div>
 
-    <!-- Contact  -->
-    <div class="contact secPadding contactPage">
+    <!-- Survey Page  -->
+    <div class="surveyPage secPadding">
         <div class="container">
-            <div class="row">
-                <div class="col-12 wow fadeInUp">
-                    <div class="contactList">
-                        <div class="row">
-                            <div class="col-12 col-sm-4">
-                                <div class="contactItem">
-                                    <img src="images/icon-loction.png" alt="icon" class="img-fluid">
-                                    <div class="contactItemData">
-                                        <h5> Location : </h5>
-                                        <h6> Lorem Ipsum is simply dummy </h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-4">
-                                <div class="contactItem">
-                                    <img src="images/icon-mail.png" alt="icon" class="img-fluid">
-                                    <div class="contactItemData">
-                                        <h5> E-Mail : </h5>
-                                        <h6> Nameemail@gmail.com </h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-4">
-                                <div class="contactItem">
-                                    <img src="images/icon-phone-2.png" alt="icon" class="img-fluid">
-                                    <div class="contactItemData">
-                                        <h5> Phone : </h5>
-                                        <h6> 00123456789877 </h6>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="pageForm wow fadeInUp">
+                <h2> Contact Us </h2>
+                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply Lorem Ipsum is simply </p>
+                <div class="contactForm">
+                    <form action="">
+                        <div class="field">
+                            <input type="text" class="form-control" id="name">
+                            <label for="name"> Full Name </label>
                         </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-5 wow fadeInUp"> 
-                    <div class="contactBox">
-                        <h2> Contact Us </h2>
-                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply Lorem Ipsum is simply </p>
-                        <div class="contactForm">
-                            <form action="">
-                                <div class="field">
-                                    <input type="text" class="form-control" id="name">
-                                    <label for="name"> Full Name </label>
-                                </div>
-                                <div class="field">
-                                    <input type="email" class="form-control" id="email">
-                                    <label for="email"> Your Email </label>
-                                </div>
-                                <div class="field">
-                                    <textarea type="text" class="form-control" id="message"></textarea>
-                                    <label for="message"> Message </label>
-                                </div>
-                                <button type="submit" class="Btn blueBtn"> Submit </button>
-                            </form>
+                        <div class="field">
+                            <input type="text" class="form-control" id="job">
+                            <label for="job"> Job title </label>
                         </div>
-                    </div>
+                        <div class="field">
+                            <input type="text" class="form-control" id="mobile">
+                            <label for="mobile"> Your Mobile number </label>
+                        </div>
+                        <div class="field">
+                            <input type="email" class="form-control" id="email">
+                            <label for="email"> Your Email </label>
+                        </div>
+                        <div class="field">
+                            <input type="text" class="form-control" id="facilityName">
+                            <label for="facilityName"> Facility Name </label>
+                        </div>
+                        <div class="field iconField">
+                            <input type="text" class="form-control" id="facilitylocation">
+                            <label for="facilitylocation"> Facility location </label>
+                            <span data-toggle="modal" data-target="#mapModal"> <img src="images/icon-loction.png" alt="icon"> </span>
+                        </div>
+                        <button type="submit" class="Btn blueBtn"> Submit </button>
+                    </form>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-7 wow fadeInUp"> 
-                    <div class="contactMap">
-                        <div class="map"> <img src="images/map.png" alt="map" class="img-fluid"> </div>
-                    </div>
-                </div>            
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Modal  -->
+    <div class="modal fade mapModal" id="mapModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="map" id="map">
+                    <iframe width="100%" height="100%" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;coord=24.7136, 46.6753&amp;q=Riydah+(Riydah)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/draw-radius-circle-map/">Create radius map</a></iframe>
+                </div>
             </div>
         </div>
     </div>
