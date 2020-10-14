@@ -5,11 +5,11 @@
     var rtlVal = false ;
 
     $(window).on('load', function(){
-        // $('body').addClass('stopScroll');
-        // $('.loader').fadeOut(500, function () {
-        //     $(this).remove();
-        //     $('body').removeClass('stopScroll');
-        // });  
+        $('body').addClass('stopScroll');
+        $('.loader').fadeOut(500, function () {
+            $(this).remove();
+            $('body').removeClass('stopScroll');
+        });  
     });
 
     if($('body').hasClass('ar')) {
