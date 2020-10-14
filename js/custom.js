@@ -38,24 +38,6 @@
         $('.menuBtn').removeClass('open'); 
         $('body').removeClass('stopScroll');  
     });
-
-    // //  Open DropDown
-    // $('.dropToggle').on('click', function(e){
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     if($(this).next('.dropDown').hasClass('open')){
-    //         $('.dropDown').removeClass('open');
-    //     } else {
-    //         $('.dropDown').removeClass('open');
-    //         $(this).next('.dropDown').toggleClass('open');
-    //     } 
-    // });
-
-    //  Close DropDown
-    // $(document).on('click', function(){
-    //     $('.dropDown').removeClass('open');
-    // });
-
     
     // Header OWL 
     $('.owlHeader').owlCarousel({
@@ -103,6 +85,9 @@
         responsive: {
             0: {
                 items: 2
+            },
+            425: {
+                items: 3
             },
             600: {
                 items: 5

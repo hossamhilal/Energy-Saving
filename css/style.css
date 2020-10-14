@@ -204,6 +204,13 @@ button:focus {
     opacity: 0;
     visibility: hidden;
     transition: all .4s ease-in-out;
+    z-index: 1;
+}
+
+.languageList.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .languageList a {
